@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/HomePage/Home.jsx";
+import Tienda from "./Components/Tienda/Tienda.jsx" 
+import Header from "./Components/Header/Header.jsx"
+import { useState,  useEffect, createContext } from "react";
+import Cesta from './Components/Cesta/Cesta.jsx'
+import Checkout from './Components/Checkout/Checkout.jsx' 
+import Success from './Components/Succes/Success.jsx'
 
-function App() {
+
+
+export const CoffeContext = createContext()
+
+function App() { 
+
+  const[coffe, setCoffe] = useState([])
+
+    useEffect(() => { 
+        fetch("https://cafe-de-altura-api.vercel.app/api/products") 
+            .then(res => res.json()) 
+            .then(data => { setCoffe(data.products)
+            })       
+    }, []);  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      <BrowserRouter > 
+      <CoffeContext.Provider value={{coffe}}> 
+      <Header /> 
+        <Routes> 
+          <Route path="Home" element={<Home />} />
+          <Route path='Tienda' element={<Tienda />} /> 
+          <Route path='Cesta' element={<Cesta />} /> 
+          <Route path='Checkout' element={<Checkout />} /> 
+          <Route path='Success' element={<Success />} />
+        </Routes> 
+      </CoffeContext.Provider> 
+      </BrowserRouter> 
     </div>
   );
 }
 
-export default App;
+export default App; 
+
+
