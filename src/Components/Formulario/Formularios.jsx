@@ -10,7 +10,7 @@ export default function Formulario() {
             <section className='flex bg-contact gap-2.5'>
                 <article className='flex flex-col gap-8 pt-28 pl-10'>
                     <div className='w-1/2'>
-                        <h2n className='text-lg font-semibold text-black'>Entra en contacto con nosotros</h2n>
+                        <h2 className='text-lg font-semibold text-black'>Entra en contacto con nosotros</h2>
                         <p className='pt-3 text-cont'>
                             Si tienes dudas, ponte en contacto con nosotros a través 
                             del formulario y te responderemos lo antes posible.
@@ -51,23 +51,23 @@ export default function Formulario() {
                     <form className='flex flex-col gap-6 '>
                         <div className='flex flex-col gap-1 text-label text-xs'>
                             <label>Nombre Completo</label> 
-                            <input type="text" className='rounded-md border border-label' />
+                            <input type="text" className='rounded-md w-96 border border-label' />
                         </div>
 
                         <div className='flex flex-col gap-1 text-label text-xs'>
                             <label>Email</label> 
-                            <input type="text" className='rounded-md border border-label'/>
+                            <input type="text" className='rounded-md w-96 border border-label'/>
                         </div>
 
                         <div className='flex flex-col gap-1 text-label text-xs'>
                             <label>Telefono </label> 
-                            <input type="text" className='rounded-md border border-label'/>
+                            <input type="text" className='rounded-md border w-96 border-label'/>
                         </div>
 
                         <div className='flex flex-col gap-1 text-label text-xs'>
                             <textarea 
                                 name="quejas" id="quejas" cols="25" 
-                                rows="9" placeholder="¿En qué podemos ayudarte?" className='border border-label rounded-md'>
+                                rows="9" placeholder="¿En qué podemos ayudarte?" className='w-96 border border-label rounded-md'>
                             </textarea>
                         </div>
 

@@ -50,7 +50,7 @@ export default function Check() {
                             <hr />
 
                             <article className="flex gap-4 p-2 pt-5"> 
-                                <input type="radio" />
+                                <input type="radio" className="accent-green-900"/>
                                 <div> 
                                     <p className="text-black text-xs font-semibold">Transferencia bancaria a la cuenta ES12 1234 1234 123457890</p>
                                     <p className="text-xs font-extralight">Será necesario recibir el comprobante de la transferencia para preparar tu pedido</p>
@@ -62,7 +62,7 @@ export default function Check() {
 
                             <article className="flex gap-4 p-2">
                                 <div className="flex text-sm items-center gap-4 font-semibold"> 
-                                    <input type="radio" />
+                                    <input type="radio" className="accent-green-900"/>
                                     <p>Bizum</p> 
                                     <img className="w-14 h-6" src={Bizum} alt="Bizum" />
                                 </div>

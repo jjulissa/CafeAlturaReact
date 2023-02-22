@@ -5,7 +5,8 @@ import TiendaMainOne from './TiendaMainOne.jsx'
 
 export default function QuantityCoffe() {
     
-    const {coffe} = useContext(CoffeContext)
+    const {coffe} = useContext(CoffeContext); 
+    
 
     return ( 
 

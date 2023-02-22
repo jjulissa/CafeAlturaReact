@@ -28,7 +28,7 @@ function App() {
       <CoffeContext.Provider value={{coffe}}> 
       <Header /> 
         <Routes> 
-          <Route path="Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path='Tienda' element={<Tienda />} /> 
           <Route path='Cesta' element={<Cesta />} /> 
           <Route path='Checkout' element={<Checkout />} /> 

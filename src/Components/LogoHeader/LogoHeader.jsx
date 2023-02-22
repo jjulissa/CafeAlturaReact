@@ -8,7 +8,7 @@ export default function LogoHeader() {
     
     return ( 
         <>  
-            <Link to="Home"> 
+            <Link to="/"> 
                 <div className="flex gap-2"> 
                     <h1 className="text-2xl font-normal">cafedealtura.com</h1> 
                     <img src={LogoNavHeader} alt="logo" /> 

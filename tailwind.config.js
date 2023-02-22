@@ -3,11 +3,12 @@ module.exports = {
   content: [ 
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
-    extend: { 
-      fontFamily: {
+  theme: { 
+    fontFamily: {
         'fontFam': ['Outfit', 'cursive', 'Monoton', 'sans-serif'],
-      }, 
+      },  
+      
+    extend: { 
 
       colors: {
       'gris': '#515051', 

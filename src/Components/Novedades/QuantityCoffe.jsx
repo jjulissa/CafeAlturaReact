@@ -8,14 +8,7 @@ export default function QuantityCoffe({quantity}) {
     
     const {coffe} = useContext(CoffeContext)
     
-    let depositoArray= coffe.slice(0, 4)
-
-    // for (let i = 0; i < 4; i++) {
-    //     if(coffe) { 
-    //         depositoArray.push(coffe[i]); 
-    //     }
-    // }
-    console.log(depositoArray);
+    let depositoArray = coffe.slice(0, 4); 
 
     return ( 
 

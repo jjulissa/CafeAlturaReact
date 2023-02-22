@@ -22,7 +22,7 @@ export default function SuccesMain() {
                     </p>
                 </section>
 
-                <article>                     
+                <article className="w-10/12">                     
                     <section className="flex p-6 flex-col self-center gap-6 bg-hover rounded ">
                         <h2 className="text-lg font-semibold text-black">Tu pedido</h2>
                         <hr /> 
@@ -44,16 +44,16 @@ export default function SuccesMain() {
 
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>TOTAL</p>
-                                <div>
-                                    <p>0 €</p>
-                                    <p>Incluye 3,78€ de IVA</p>
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-xs font-normal text-right">0 €</p>
+                                    <p className="text-xs text-gray-700 pl-14">Incluye 3,78€ de IVA</p>
                                 </div>
                             </article>
                         </div>
                     </section>
                 </article>
 
-                <section> 
+                <section className="flex justify-center content-center gap-2"> 
                     <button> 
                         <Link to='/Tienda'> 
                             <Button 
