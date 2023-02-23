@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import Button from "../Button/Button"; 
 import imgSucces from '../../assets/iconSucces.png'
-
+import { useContext } from "react";
+import { CoffeContext } from '../../App.js';
 
 export default function SuccesMain() {
     
+    const {total} = useContext(CoffeContext);  
 
     return ( 
         <> 
@@ -32,7 +34,7 @@ export default function SuccesMain() {
 
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>SUBTOTAL</p>
-                                <p>0 €</p>
+                                <p>{total} €</p>
                             </article>
 
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
@@ -45,7 +47,7 @@ export default function SuccesMain() {
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="text-xs font-normal text-right">0 €</p>
+                                    <p className="text-xs font-normal text-right">{total} €</p>
                                     <p className="text-xs text-gray-700 pl-14">Incluye 3,78€ de IVA</p>
                                 </div>
                             </article>

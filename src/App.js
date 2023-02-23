@@ -13,7 +13,13 @@ export const CoffeContext = createContext()
 
 function App() { 
 
-  const[coffe, setCoffe] = useState([])
+  const[coffe, setCoffe] = useState([]) 
+  const [product, setProduct] = useState([]); 
+  const [precioUnidad, setPrecioUnidad] = useState(); 
+  const [quantidad, setQuantidad] = useState() 
+  const [total, setTotal] = useState() 
+  const [envio, setEnvio] = useState()
+  
 
     useEffect(() => { 
         fetch("https://cafe-de-altura-api.vercel.app/api/products") 
@@ -25,7 +31,7 @@ function App() {
   return (
     <div className="App"> 
       <BrowserRouter > 
-      <CoffeContext.Provider value={{coffe}}> 
+      <CoffeContext.Provider value={{coffe, product, envio, setEnvio, setProduct, precioUnidad, setPrecioUnidad, quantidad, setQuantidad, total, setTotal}}> 
       <Header /> 
         <Routes> 
           <Route path="/" element={<Home />} />

@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import Bizum from '../../assets/Bizum.png' 
-import Button from '../Button/Button.jsx'
+import Button from '../Button/Button.jsx'; 
+import { useContext } from "react";
+import { CoffeContext } from '../../App.js'; 
 
 
 export default function Check() {
     
+    const {total} = useContext(CoffeContext);  
+
+    console.log(total);
 
     return ( 
         <> 
@@ -148,7 +153,7 @@ export default function Check() {
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
                                 <p>SUBTOTAL</p>
-                                <p>0 €</p>
+                                <p>{total} €</p>
                             </div>
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
@@ -161,7 +166,7 @@ export default function Check() {
                             <div className="flex justify-between gap-4">
                                 <p className="font-semibold text-black text-sm">TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="font-semibold text-black text-sm text-right">0 €</p>
+                                    <p className="font-semibold text-black text-sm text-right">{total} €</p>
                                     <p className="text-right text-xs text-gris font-normal">Incluye 3,78€ de IVA</p>
                                 </div>
                             </div>

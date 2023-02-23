@@ -43,7 +43,7 @@ export default function Formulario() {
                                 <p className='text-cont'>support@example.com</p>
                             </div>
                         </address>
-                        <p className='flex text-cont p-3.5 gap-1'>¿Buscas un trabajo?<p className='text-black'>Ver nuestras ofertas.</p> </p>
+                        <p className='flex text-cont p-3.5 gap-1'>¿Buscas un trabajo?<span className='text-black underline'>Ver nuestras ofertas.</span> </p>
                     </div>
                 </article>
 

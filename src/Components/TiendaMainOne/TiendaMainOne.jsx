@@ -1,11 +1,23 @@
-import Button from '../Button/Button.jsx' 
+import { useContext } from "react"
+import { CoffeContext } from "../../App"
 
 
 export default function Novedades({imgCoffe, TitleCoffe, PriceCoffe}) { 
 
+    const { setProduct } = useContext(CoffeContext)
+
+    function add(e) {
+        
+        setProduct(prev => {
+            return [...prev, { 
+                imgCoffe: imgCoffe, 
+                TitleCoffe: TitleCoffe, 
+                PriceCoffe: PriceCoffe, 
+            }]
+        }) 
+    } 
 
 
-    // console.log();
     return ( 
             <article className=" hover:bg-gray-50 p-6 shadow-boxShaGris border border-colorBorder rounded-lg flex w-72 flex-col justify-center gap-6 items-center"> 
                 <img src={imgCoffe} alt="url" />
@@ -13,10 +25,9 @@ export default function Novedades({imgCoffe, TitleCoffe, PriceCoffe}) {
                     <h3>{TitleCoffe}</h3>
                     <p>{PriceCoffe}</p>
                 </div> 
-                <Button 
-                    bgColor="bg-verde"
-                    textColor='text-white'
-                    TextButton= "Añadir"/>
+                <button 
+                    onClick={add}
+                    className={`bg-verde text-white py-3 font-fontFam px-6 shadow-boxSha justify-center items-center rounded  border-none  `}>Añadir</button> 
             </article>  
     )    
 }

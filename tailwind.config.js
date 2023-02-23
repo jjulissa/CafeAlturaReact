@@ -20,7 +20,9 @@ module.exports = {
       'contact': '#E3DED7', 
       'cont': '#6B7280', 
       'label': '#374151', 
-      'input': '#D1D5DB'
+      'input': '#D1D5DB', 
+      'cesta': '#2a5b451a', 
+      
       
       }, 
 
