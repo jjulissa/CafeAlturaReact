@@ -13,25 +13,27 @@ export const CoffeContext = createContext()
 
 function App() { 
 
-  const[coffe, setCoffe] = useState([]) 
-  const [product, setProduct] = useState([]); 
-  const [precioUnidad, setPrecioUnidad] = useState(); 
-  const [quantidad, setQuantidad] = useState() 
-  const [total, setTotal] = useState() 
-  const [envio, setEnvio] = useState()
+  const [coffe, setCoffe] = useState([]) 
+  const [product, setProduct] = useState(JSON.parse(localStorage.getItem("product")) || []); 
+  const [cesta, setCesta] = useState(0); 
+  const [total, setTotal] = useState(0) 
+  const [envio, setEnvio] = useState(0) 
   
-
     useEffect(() => { 
         fetch("https://cafe-de-altura-api.vercel.app/api/products") 
             .then(res => res.json()) 
             .then(data => { setCoffe(data.products)
             })       
-    }, []);  
+    }, []);   
+
+    useEffect(() => { 
+        localStorage.setItem("product", JSON.stringify(product));
+    }, [product]);
 
   return (
     <div className="App"> 
+      <CoffeContext.Provider value={{coffe, product, envio, setEnvio, setProduct, cesta, setCesta, total, setTotal}}> 
       <BrowserRouter > 
-      <CoffeContext.Provider value={{coffe, product, envio, setEnvio, setProduct, precioUnidad, setPrecioUnidad, quantidad, setQuantidad, total, setTotal}}> 
       <Header /> 
         <Routes> 
           <Route path="/" element={<Home />} />
@@ -40,8 +42,8 @@ function App() {
           <Route path='Checkout' element={<Checkout />} /> 
           <Route path='Success' element={<Success />} />
         </Routes> 
-      </CoffeContext.Provider> 
       </BrowserRouter> 
+      </CoffeContext.Provider> 
     </div>
   );
 }

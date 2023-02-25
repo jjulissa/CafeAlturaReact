@@ -2,48 +2,43 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CoffeContext } from "../../App";
 import Button from '../Button/Button'
-import ProductoCesta from "./ProductosCesta";
+import ProductoCesta from "./ProductosCesta"; 
 
 
-export default function CestaMain(PriceCoffe) {
+
+export default function CestaMain(PriceCoffe) { 
     
-    const {product} = useContext(CoffeContext)  
-    const {setTotal} = useContext(CoffeContext)
+    const {product, setProduct} = useContext(CoffeContext)   
 
-    localStorage.setItem("product", JSON.stringify(product)); 
-    
-    let storage = JSON.parse(localStorage.getItem("product")); 
+    function envio() {
+        
 
-    if(storage) { 
-        // para comparar que no hay 2 iguales en la cesta
     }
-
-    let array = 0
-
-    product.map((prix, i) => { 
-        return setTotal(array += prix.PriceCoffe )
-    })
 
 
     return ( 
         <> 
             <main className="flex justify-content items-center flex-col gap-6 py-10 px-2.5">
 
-                <h1 className="text-verde font-medium text-2xl">Cesta (<span>0</span>)</h1>
+                <h1 className="text-verde font-medium text-2xl">Cesta (<span>{}</span>)</h1>
 
                 <section className="flex items-center gap-8">
                     <div className="flex flex-col gap-6 p-2">
                         <p className="text-black text-lg">Productos</p> 
 
-                    {
+                    {  
+                    product.length === 0 ? 
+                        <p> You have nothing in the CART!!! </p> : 
                         product.map((coffe, i) => { 
                             return <ProductoCesta 
+
                                 key={coffe._id} 
                                 imgCoffe={coffe.imgCoffe} 
                                 TitleCoffe={coffe.TitleCoffe} 
-                                PriceCoffe={coffe.PriceCoffe }  
+                                PriceCoffe={coffe.PriceCoffe}  
+                                quantity = {coffe.quantity}
                             /> 
-                        })
+                        }) 
                     }
                     
                         <h2 className="text-lg font-semibold">Seleccionar envío</h2>
@@ -60,7 +55,8 @@ export default function CestaMain(PriceCoffe) {
                         <hr />
 
                         <article className="flex gap-4"> 
-                            <input type="radio" className="accent-green-900"/>
+                            <input onClick={envio}
+                                type="radio" className="accent-green-900"/>
                             <div className="flex flex-col gap-1">
                                 <label htmlFor="envioUrgente" className="text-black text-sm font-semibold">Envío urgente 24h</label>
                                 <p className="text-sm text-black font-normal">Recibe tu pedido en las siguientes 24h (Para pedidos realizados antes de las 13:00).</p>
@@ -77,7 +73,7 @@ export default function CestaMain(PriceCoffe) {
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
                                 <p>SUBTOTAL</p>
-                                <p>{array} €</p>
+                                <p>{} €</p>
                             </div>
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
