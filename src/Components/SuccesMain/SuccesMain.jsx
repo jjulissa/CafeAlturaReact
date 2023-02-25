@@ -2,11 +2,20 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button"; 
 import imgSucces from '../../assets/iconSucces.png'
 import { useContext } from "react";
-import { CoffeContext } from '../../App.js';
+import { CoffeContext } from '../../App.js'; 
+import ProductoCesta from '../CestaMain/ProductosCesta'
 
 export default function SuccesMain() {
     
-    const {total} = useContext(CoffeContext);  
+    const {product} = useContext(CoffeContext); 
+
+    function total(product) {
+        let sum = product.reduce((acc, element) => { 
+           return acc += element.PriceCoffe * element.quantity 
+        }, 0) 
+
+        return sum
+    } 
 
     return ( 
         <> 
@@ -29,17 +38,21 @@ export default function SuccesMain() {
                         <h2 className="text-lg font-semibold text-black">Tu pedido</h2>
                         <hr /> 
 
+                        <div> 
+                            
+                        </div>
+
                         <div className="flex flex-col gap-4"> 
                             <hr />
 
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>SUBTOTAL</p>
-                                <p>{total} €</p>
+                                <p>{total(product)}, 00 €</p>
                             </article>
 
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>ENVÍO</p>
-                                <p>GRATIS</p>
+                                <p>{9}, 00</p>
                             </article>
 
                             <div></div>
@@ -47,7 +60,7 @@ export default function SuccesMain() {
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="text-xs font-normal text-right">{total} €</p>
+                                    <p className="text-xs font-normal text-right">{(total(product) + 9) - 3.78 }, 00 €</p>
                                     <p className="text-xs text-gray-700 pl-14">Incluye 3,78€ de IVA</p>
                                 </div>
                             </article>

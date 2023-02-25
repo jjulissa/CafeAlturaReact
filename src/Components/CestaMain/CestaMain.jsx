@@ -8,12 +8,16 @@ import ProductoCesta from "./ProductosCesta";
 
 export default function CestaMain(PriceCoffe) { 
     
-    const {product, setProduct} = useContext(CoffeContext)   
+    const {product} = useContext(CoffeContext);   
+    // const {cesta, setCesta} = useContext(CoffeContext)
+    
+    function total(product) { 
+        let sum = product.reduce((acc, element) => { 
+           return acc += element.PriceCoffe * element.quantity 
+        }, 0) 
 
-    function envio() {
-        
-
-    }
+        return sum
+    } 
 
 
     return ( 
@@ -44,7 +48,9 @@ export default function CestaMain(PriceCoffe) {
                         <h2 className="text-lg font-semibold">Seleccionar envío</h2>
 
                         <article className="flex gap-4"> 
-                            <input type="radio" className="accent-green-900"/>
+                            <input 
+                                // onClick={() => envios()}
+                                type="radio" className="accent-green-900"/>
                             <div className="flex flex-col gap-1">
                                 <label className="text-black text-sm font-semibold">Envío 5-7 días</label>
                                 <p className="text-sm text-black font-normal">Opción estándar sin seguimiento</p>
@@ -55,8 +61,9 @@ export default function CestaMain(PriceCoffe) {
                         <hr />
 
                         <article className="flex gap-4"> 
-                            <input onClick={envio}
-                                type="radio" className="accent-green-900"/>
+                            <input 
+                                // onClick={() => envios()}
+                                type="radio" className={`accent-green-900`}/>
                             <div className="flex flex-col gap-1">
                                 <label htmlFor="envioUrgente" className="text-black text-sm font-semibold">Envío urgente 24h</label>
                                 <p className="text-sm text-black font-normal">Recibe tu pedido en las siguientes 24h (Para pedidos realizados antes de las 13:00).</p>
@@ -73,12 +80,12 @@ export default function CestaMain(PriceCoffe) {
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
                                 <p>SUBTOTAL</p>
-                                <p>{} €</p>
+                                <p>{total(product)}, 00 €</p>
                             </div>
 
                             <div className="flex gap-4 font-normal text-black justify-between text-sm">
                                 <p>ENVÍO</p>
-                                <p >GRATIS</p>
+                                <p>{9}, 00 €</p>
                             </div>
 
                             <hr />
@@ -86,7 +93,7 @@ export default function CestaMain(PriceCoffe) {
                             <div className="flex justify-between gap-4">
                                 <p className="font-semibold text-black text-sm">TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="font-semibold text-black text-sm text-right">0 €</p>
+                                    <p className="font-semibold text-black text-sm text-right">{(total(product) + 9) - 3.78 }, 00 €</p>
                                     <p className="text-right text-xs text-gris font-normal">Incluye 3,78€ de IVA</p>
                                 </div>
                             </div>

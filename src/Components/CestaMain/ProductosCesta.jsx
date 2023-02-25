@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 export default function ProductoCesta({imgCoffe, TitleCoffe, PriceCoffe, quantity}) {
        
-    const {product, setProduct} = useContext(CoffeContext) 
+    const { setProduct} = useContext(CoffeContext) 
     
     
     function mas(event) { 
@@ -58,7 +58,7 @@ export default function ProductoCesta({imgCoffe, TitleCoffe, PriceCoffe, quantit
                     <p className='text-sm font-semibold text-black'> {TitleCoffe}</p> 
                     <p>Paquete de café, 250 gr</p>
                 </div> 
-                <p className='pl-60  text-lg font-semibold'>{PriceCoffe * quantity} €</p> 
+                <p className='pl-60  text-lg font-semibold'>{PriceCoffe * quantity}, 00 €</p> 
             </article> 
         </>
     )
