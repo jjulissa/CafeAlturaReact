@@ -17,7 +17,7 @@ export default function Carito() {
 
     return ( 
         <div> 
-            <Link to='Cesta' className="flex"> 
+            <Link to='Cesta' className="flex gap-2"> 
                 <img className=""  src={iconCarito} alt="iconCarito" /> 
                 <span>{cesta()}</span>
            </Link>

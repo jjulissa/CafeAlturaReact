@@ -107,7 +107,7 @@ export default function CestaMain(PriceCoffe) {
                             <div className="flex justify-between gap-4">
                                 <p className="font-semibold text-black text-sm">TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="font-semibold text-black text-sm text-right">{(total(product) + envio) }, 00 €</p>
+                                    <p className="font-semibold text-black text-sm text-right">{(total(product) + envio) - 0.21 }, 00 €</p>
                                     <p className="text-right text-xs text-gris font-normal">Incluye 3,78€ de IVA</p>
                                 </div>
                             </div>
