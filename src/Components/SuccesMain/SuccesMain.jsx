@@ -62,7 +62,7 @@ export default function SuccesMain() {
                             <article className="flex text-sm font-semibold justify-between gap-4 text-black">
                                 <p>TOTAL</p>
                                 <div className="flex flex-col gap-2">
-                                    <p className="text-xs font-normal text-right">{(total(product) + envio) - 0.21 }, 00 €</p>
+                                    <p className="text-xs font-normal text-right">{(total(product) + envio) } €</p>
                                     <p className="text-xs text-gray-700 pl-14">Incluye 3,78€ de IVA</p>
                                 </div>
                             </article>
