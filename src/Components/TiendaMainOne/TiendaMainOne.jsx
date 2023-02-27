@@ -4,7 +4,7 @@ import { CoffeContext } from "../../App"
 
 export default function Novedades({imgCoffe, TitleCoffe, PriceCoffe, quantity }) { 
 
-    const {product, setProduct } = useContext(CoffeContext); 
+    const {setProduct } = useContext(CoffeContext); 
 
     function add(e) {
         
